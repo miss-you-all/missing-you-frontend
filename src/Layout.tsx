@@ -1,10 +1,12 @@
+import React from 'react'
 import { Outlet } from 'react-router-dom'
+import 'twin.macro'
 
 const Layout = () => (
   <>
-    <div className="max-w-[980px] mx-auto">
-      <nav className="bg-red-500 w-full">hihi</nav> // header
-      <div className="bg-blue-500">
+    <div tw="max-w-[980px] mx-auto">
+      <nav tw="bg-red-500 w-full">hihi</nav>
+      <div>
         <Outlet />
       </div>
     </div>

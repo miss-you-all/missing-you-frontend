@@ -1,13 +1,7 @@
-import './App.css'
+import Layout from './Layout.tsx'
 
 function App() {
-  return (
-    <>
-      <div>
-        <p className="flex text-blue-300 justify-center">hihi</p>
-      </div>
-    </>
-  )
+  return <Layout />
 }
 
 export default App

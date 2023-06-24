@@ -1,3 +1,14 @@
-const Layout = () => <div className="bg-blue-500">아아아아ㅏ</div>
+import { Outlet } from 'react-router-dom'
+
+const Layout = () => (
+  <>
+    <div className="max-w-[980px] mx-auto">
+      <nav className="bg-red-500 w-full">hihi</nav> // header
+      <div className="bg-blue-500">
+        <Outlet />
+      </div>
+    </div>
+  </>
+)
 
 export default Layout

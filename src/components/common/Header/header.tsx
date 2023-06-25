@@ -1,5 +1,5 @@
 const header = () => (
-  <header className="bg-green-300 h-14 flex justify-between items-center px-5 lg:px-10">
+  <header className="h-14 flex justify-between items-center px-5 lg:px-10 border-b-black border-solid border-2">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="32"
@@ -12,7 +12,8 @@ const header = () => (
       />
     </svg>
 
-    <h1>Header</h1>
+    {/* <h1>Header</h1> */}
+    <img src="/public/hamburger-menu.png" className="h-5"/>
   </header>
 )
 

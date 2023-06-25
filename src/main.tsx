@@ -4,12 +4,12 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import About from './pages/About.tsx'
 import './index.css'
-import SendLetter from './pages/SendLetter/index.tsx'
 import GlobalStyles from './styles/GlobalStyles.tsx'
 import Intro from './pages/Intro/index.tsx'
-
+import SendLetter from './pages/SendLetter/index.tsx'
 import WriteLetter from './pages/WriteLetter/index.tsx'
-import ViewLetter from './pages/ViewLetter/index.tsx'
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
 
 window.Kakao.init(import.meta.env.VITE_SHARE_KAKAO_LINK_KEY)
 window.Kakao.isInitialized()

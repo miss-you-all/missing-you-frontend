@@ -12,10 +12,11 @@ const WriteLetter = () => {
   function closeModal() {
     setIsModal(false)
   }
+
   return (
     <section className="grid grid-rows[auto_min-content_min-content_min-content_min_content] gap-y-10 content-center h-full">
       {/* swiper */}
-      <div className="w-50 h-60 bg-sky-300" />
+      <ImageSwiper />
       {/* Send, Receive Name */}
       <div className="grid grid-cols-2 justify-between gap-x-20">
         <div>

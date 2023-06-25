@@ -1,4 +1,4 @@
-import { TPreview } from './types/index.ts'
+import type { TPreview } from './types/index.ts'
 
 const Letter = ({ recipient, sender, image, text }: TPreview) => (
   <div className="border-black border-solid border-2 bg-white">

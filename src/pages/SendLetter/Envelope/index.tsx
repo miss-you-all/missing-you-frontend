@@ -1,5 +1,5 @@
-import React, { useRef, useState } from 'react'
-import {} from 'twin.macro'
+// eslint-
+import { useRef, useState } from 'react'
 import html2canvas from 'html2canvas'
 import saveAs from 'file-saver'
 import CardContainer from './style.ts'
@@ -68,14 +68,20 @@ const Envelope = () => {
           <p className="name">태양인</p>
         </div>
       </div>
-      <div tw="flex gap-x-4 justify-center">
-        <button tw="bg-slate-200 p-2 rounded-md" onClick={handleShareKakao}>
+      <div className="flex gap-x-4 justify-center">
+        <button
+          className="bg-slate-200 p-2 rounded-md"
+          onClick={handleShareKakao}
+        >
           <img
             src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
             alt="카카오링크 보내기 버튼"
           />
         </button>
-        <button tw="bg-slate-500 p-2 rounded-md" onClick={handleDownload}>
+        <button
+          className="bg-slate-500 p-2 rounded-md"
+          onClick={handleDownload}
+        >
           저장하기
         </button>
       </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createHashRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './App.tsx'
 import About from './pages/About.tsx'
 import './index.css'
@@ -14,7 +14,7 @@ import ViewLetter from './pages/ViewLetter/index.tsx'
 window.Kakao.init(import.meta.env.VITE_SHARE_KAKAO_LINK_KEY)
 window.Kakao.isInitialized()
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,

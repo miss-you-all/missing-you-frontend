@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/missing-you-frontend/',
+  // base: '/missing-you-frontend/',
   optimizeDeps: {
     esbuildOptions: {
       target: 'es2020',

@@ -7,10 +7,12 @@ import './index.css'
 import SendLetter from './pages/SendLetter/index.tsx'
 import GlobalStyles from './styles/GlobalStyles.tsx'
 import Intro from './pages/Intro/index.tsx'
+
 import WriteLetter from './pages/WriteLetter/index.tsx'
 import ViewLetter from './pages/ViewLetter/index.tsx'
-import ModalTest from './pages/WriteLetter/modalTest.tsx'
-import Preview from './pages/WriteLetter/preview.tsx'
+
+window.Kakao.init(import.meta.env.VITE_SHARE_KAKAO_LINK_KEY)
+window.Kakao.isInitialized()
 
 const router = createBrowserRouter([
   {
@@ -36,14 +38,6 @@ const router = createBrowserRouter([
       {
         path: '/about',
         element: <About />,
-      },
-      {
-        path: '/modal-test',
-        element: <ModalTest />,
-      },
-      {
-        path: '/preview',
-        element: <Preview />,
       },
     ],
   },

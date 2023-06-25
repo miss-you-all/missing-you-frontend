@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react'
 import {} from 'twin.macro'
 import html2canvas from 'html2canvas'
 import saveAs from 'file-saver'
-import { CardContainer } from './style.ts'
+import CardContainer from './style.ts'
 
 const Envelope = () => {
   const divRef = useRef<HTMLDivElement>(null)
@@ -10,6 +10,26 @@ const Envelope = () => {
 
   const handleOpen = () => {
     setisOpen((prev) => !prev)
+  }
+
+  const handleShareKakao = () => {
+    window.Kakao.Share.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '딸기 치즈 케익',
+        description: '#케익 #딸기 #삼평동 #카페 #분위기 #소개팅',
+        // TODO: 이미지 링크
+        imageUrl:
+          'http://k.kakaocdn.net/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        link: {
+          // [내 애플리케이션] > [플랫폼] 에서 등록한 사이트 도메인과 일치해야 함
+          // TODO: View Letter Link
+          // /to?={TO}from?={from}image
+          mobileWebUrl: 'https://developers.kakao.com',
+          webUrl: 'https://developers.kakao.com',
+        },
+      },
+    })
   }
 
   const handleDownload = async () => {
@@ -29,53 +49,37 @@ const Envelope = () => {
   }
 
   return (
-    <>
-      {/* <Container>
-      <div className="envelope">
-        <div className="envelope-body">
-          <div className="back-fold"></div>
-          <div className="letter">
-            <div className="letter-body"></div>
-            <div className="letter-title"></div>
-            <div className="letter-context"></div>
-            <div className="letter-stamp">
-              <div className="letter-stamp-inner"></div>
-            </div>
+    <CardContainer>
+      <div
+        className={`card ${isOpen ? 'open' : ''}`}
+        ref={divRef}
+        onClick={handleOpen}
+      >
+        <div className="cardFront">
+          <h3 className="happy">여러분~</h3>
+          <div className="balloons">
+            <img src="/assets/imgs/everyone.jpg" alt="taeyang" />
           </div>
-          <div className="top-fold"></div>
-          <div className="body"></div>
-          <div className="left-fold"></div>
         </div>
-        <div className="shadow"></div>
+        <div className="cardInside">
+          <h3 className="back">여러분!</h3>
+          <p>태양,</p>
+          <p>나는 태양이다. 나는 태양이다. 나는 태양이다.</p>
+          <p className="name">태양인</p>
+        </div>
       </div>
-    </Container> */}
-      <CardContainer tw="mx-auto flex flex-col items-center justify-center h-full">
-        <div
-          className={`card ${isOpen ? 'open' : ''}`}
-          ref={divRef}
-          onClick={handleOpen}
-        >
-          <div className="cardFront">
-            <h3 className="happy">여러분~</h3>
-            <div className="balloons">
-              <img src="/assets/imgs/everyone.jpg" alt="taeyang" />
-            </div>
-          </div>
-          <div className="cardInside">
-            <h3 className="back">여러분!</h3>
-            <p>태양,</p>
-            <p>나는 태양이다. 나는 태양이다. 나는 태양이다.</p>
-            <p className="name">태양인</p>
-          </div>
-        </div>
-        <div tw="flex m-8 gap-x-4">
-          <button tw="bg-slate-200 p-4 rounded-md">공유하기</button>
-          <button tw="bg-slate-500 p-4 rounded-md" onClick={handleDownload}>
-            다운로드
-          </button>
-        </div>
-      </CardContainer>
-    </>
+      <div tw="flex gap-x-4 justify-center">
+        <button tw="bg-slate-200 p-2 rounded-md" onClick={handleShareKakao}>
+          <img
+            src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+            alt="카카오링크 보내기 버튼"
+          />
+        </button>
+        <button tw="bg-slate-500 p-2 rounded-md" onClick={handleDownload}>
+          저장하기
+        </button>
+      </div>
+    </CardContainer>
   )
 }
 

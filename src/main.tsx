@@ -16,27 +16,27 @@ window.Kakao.isInitialized()
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/missing-you-frontend/',
     element: <App />,
     children: [
       {
-        path: '/intro',
+        path: 'intro',
         element: <Intro />,
       },
       {
-        path: '/write-letter',
+        path: 'write-letter',
         element: <WriteLetter />,
       },
       {
-        path: '/send-letter',
+        path: 'send-letter',
         element: <SendLetter />,
       },
       {
-        path: '/view-letter',
+        path: 'view-letter',
         element: <ViewLetter />,
       },
       {
-        path: '/about',
+        path: 'about',
         element: <About />,
       },
     ],

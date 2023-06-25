@@ -1,9 +1,5 @@
 import Envelope from './Envelope/index.tsx'
 
-const SendLetter = () => (
-  <div>
-    <Envelope />
-  </div>
-)
+const SendLetter = () => <Envelope />
 
 export default SendLetter

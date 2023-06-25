@@ -39,7 +39,7 @@ const WriteLetter = () => {
       <button
         type="button"
         className="w-40 justify-self-center h-10 bg-pink-400"
-        >
+      >
         전송하기
       </button>
     </section>

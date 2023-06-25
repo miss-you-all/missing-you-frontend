@@ -7,9 +7,10 @@ import './index.css'
 import SendLetter from './pages/SendLetter/index.tsx'
 import GlobalStyles from './styles/GlobalStyles.tsx'
 import Intro from './pages/Intro/index.tsx'
-import SendLetter from './pages/SendLetter/index.tsx'
 import WriteLetter from './pages/WriteLetter/index.tsx'
 import ViewLetter from './pages/ViewLetter/index.tsx'
+import ModalTest from './pages/WriteLetter/modalTest.tsx'
+import Preview from './pages/WriteLetter/preview.tsx'
 
 const router = createBrowserRouter([
   {
@@ -37,8 +38,12 @@ const router = createBrowserRouter([
         element: <About />,
       },
       {
-        path: '/sendLetter',
-        element: <SendLetter />,
+        path: '/modal-test',
+        element: <ModalTest />,
+      },
+      {
+        path: '/preview',
+        element: <Preview />,
       },
     ],
   },

@@ -7,6 +7,9 @@ import './index.css'
 import SendLetter from './pages/SendLetter/index.tsx'
 import GlobalStyles from './styles/GlobalStyles.tsx'
 import Intro from './pages/Intro/index.tsx'
+import SendLetter from './pages/SendLetter/index.tsx'
+import WriteLetter from './pages/WriteLetter/index.tsx'
+import ViewLetter from './pages/ViewLetter/index.tsx'
 
 const router = createBrowserRouter([
   {
@@ -16,6 +19,18 @@ const router = createBrowserRouter([
       {
         path: '/intro',
         element: <Intro />,
+      },
+      {
+        path: '/write-letter',
+        element: <WriteLetter />,
+      },
+      {
+        path: '/send-letter',
+        element: <SendLetter />,
+      },
+      {
+        path: '/view-letter',
+        element: <ViewLetter />,
       },
       {
         path: '/about',

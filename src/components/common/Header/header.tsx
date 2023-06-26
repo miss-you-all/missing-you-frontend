@@ -13,8 +13,7 @@ const header = () => (
         />
       </svg>
     </a>
-    {/* <h1>Header</h1> */}
-    <img src="/hamburger-menu.png" className="h-5" />
+    {/* <img src="/hamburger-menu.png" className="h-5" /> */}
   </header>
 )
 

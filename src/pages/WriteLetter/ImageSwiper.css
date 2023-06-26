@@ -1,6 +1,10 @@
 /* 스와이퍼 크기조절 */
 .mySwiper {
-  width: 25rem;
+}
+
+.swiper-container {
+  max-width: 300px;
+  margin-left: 30px;
 }
 
 /* 버튼 조절 */
@@ -26,8 +30,7 @@
   font-weight: 600 !important;
 }
 
-/* 
-.swiper-slide img {
+/* .swiper-slide img {
   display: block;
   width: 100%;
 } */

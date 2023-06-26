@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom'
 import App from './App.tsx'
-import About from './pages/About.tsx'
+
 import './index.css'
 import GlobalStyles from './styles/GlobalStyles.tsx'
 import Intro from './pages/Intro/index.tsx'
@@ -39,10 +39,6 @@ const router = createBrowserRouter([
       {
         path: 'view-letter',
         element: <ViewLetter />,
-      },
-      {
-        path: 'about',
-        element: <About />,
       },
     ],
   },

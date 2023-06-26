@@ -17,6 +17,7 @@
   "dependencies": {
     "@emotion/babel-plugin-jsx-pragmatic": "^0.2.1",
     "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@types/howler": "^2.2.7",
     "@types/swiper": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.1",

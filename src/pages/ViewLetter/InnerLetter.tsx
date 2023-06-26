@@ -1,4 +1,5 @@
 import React from 'react'
+// import { collection, getDocs } from "firebase/firestore";
 import './OpenLetter.css'
 
 interface InnerLetterProps {
@@ -12,6 +13,11 @@ const InnerLetter: React.FC<InnerLetterProps> = ({ isVisible }) => {
     image: '../lookAtMe.jpg',
     text: 'TS 어렵다. 그리고 졸립다. 태양!! 나만 바라봐!',
   }
+  //   const getLetterContents
+  //   const querySnapshot = await getDocs(collection(db, "users"));
+  // querySnapshot.forEach((doc) => {
+  //   console.log(`${doc.id} => ${doc.data()}`);
+  // });
 
   return (
     <div className="relative z-99 h-auto bg-white p-5 col-span-6 col-start-2 lg:col-span-4 lg:col-start-5">

@@ -12,6 +12,7 @@ const WriteLetter = () => {
     from: '',
     to: '',
     content: '',
+    imageUrl: '../lookAtMe.jpg',
   })
 
   function openModal() {
@@ -28,6 +29,7 @@ const WriteLetter = () => {
       to: letterData.to,
       content: letterData.content,
       createdAt: new Date().toISOString(),
+      imageUrl: letterData.imageUrl,
     }
 
     try {

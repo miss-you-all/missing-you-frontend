@@ -30,8 +30,8 @@ function ImageSwiper({ setSwiperIndex, swiperIndex }) {
           }}
           className="mySwiper"
         >
-          {images.map((image, idx) => (
-            <SwiperSlide key={idx} className="swiper-slide">
+          {images.map((image) => (
+            <SwiperSlide className="swiper-slide">
               <div className="image-container">
                 <img src={image.src} />
               </div>

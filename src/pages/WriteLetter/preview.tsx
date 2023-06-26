@@ -1,4 +1,5 @@
 import { ReactElement } from 'react'
+import { Link } from 'react-router-dom'
 import Letter from './letter.tsx'
 
 interface Props {
@@ -31,7 +32,7 @@ const Preview = ({ open, close }: Props): ReactElement => (
         text={'TS 어렵다. 그리고 졸립다. 태양!! 나만 바라봐!'}
       />
       <div className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-between items-center px-5 lg:px-10 my-10">
-        전송하기
+        <Link to="/send-letter">전송하기</Link>
       </div>
     </div>
   </div>

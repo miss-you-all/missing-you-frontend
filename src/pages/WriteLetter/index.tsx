@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import ModalTest from './modalTest.tsx'
 import Preview from './preview.tsx'
 import ImageSwiper from './ImageSwiper.tsx'
@@ -48,7 +49,7 @@ const WriteLetter = () => {
       {isModal && <Preview open={isModal} close={closeModal} />}
       {/* Send Button */}
       <div className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-center items-center px-5 lg:px-10">
-        전송하기
+        <Link to="/send-letter">전송하기</Link>
       </div>
     </section>
   )

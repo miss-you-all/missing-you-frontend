@@ -9,7 +9,7 @@ const Intro = () => (
       </h3>
     </div>
 
-    <img src={'/public/everyone.png'} alt="태양" className="w-full h-full" />
+    <img src={'/everyone.png'} alt="태양" className="w-full h-full" />
 
     <div className="w-[90%] justify-self-center border-black border-solid border-2 rounded-lg bg-white h-14 flex items-center px-5 lg:px-10 justify-center">
       <Link to="/write-letter">편지 보내기</Link>

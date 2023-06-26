@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter, Navigate } from 'react-router-dom'
 import App from './App.tsx'
 import About from './pages/About.tsx'
 import './index.css'
@@ -20,6 +20,10 @@ const router = createBrowserRouter([
     path: '/',
     element: <App />,
     children: [
+      {
+        path: '',
+        element: <Navigate to="intro" replace />,
+      },
       {
         path: 'intro',
         element: <Intro />,

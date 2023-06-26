@@ -8,6 +8,7 @@ import './OpenLetter.css'
 
 const OpenLetterMotion: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
 
   const toggleLetter = () => {
     setIsOpen((prevState) => !prevState)
@@ -18,16 +19,23 @@ const OpenLetterMotion: React.FC = () => {
     sound.play()
   }
 
+  const showLetter = () => {
+    setTimeout(() => {
+      setIsVisible(true)
+    }, 500)
+  }
+
   const handleButtonClick = () => {
     handleHoverSound()
     toggleLetter()
+    showLetter()
   }
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-60vh">
       <div className={`letter ${isOpen ? 'letter--open' : 'letter--close'}`}>
         <div className="paper">
-          <InnerLetter />
+          <InnerLetter isVisible={isVisible} />
         </div>
         <div className="envelope" onClick={handleButtonClick}>
           <div className="envelope-paper"></div>

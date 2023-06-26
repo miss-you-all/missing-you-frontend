@@ -11,8 +11,7 @@
     "preview": "vite preview",
     "format": "prettier --check ./src",
     "format:fix": "prettier --write ./src",
-    "prepare": "husky install",
-    "deploy": "gh-pages -d dist"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/babel-plugin-jsx-pragmatic": "^0.2.1",

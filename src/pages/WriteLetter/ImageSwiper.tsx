@@ -1,7 +1,11 @@
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import './ImageSwiper.css'
+import { styled } from 'twin.macro'
 import thumbnails from '../../constants/thumbnails.ts'
+
+const SwiperWrapper = styled(SwiperSlide)<{ key: number }>`
+`
 
 function ImageSwiper({ setSwiperIndex }) {
   return (
@@ -19,16 +23,18 @@ function ImageSwiper({ setSwiperIndex }) {
           className="mySwiper"
         >
           {thumbnails.map((image) => (
-            <SwiperSlide key={image.index} className="swiper-slide">
+            <SwiperWrapper key={image.index} className="swiper-slide">
               <div className="image-container">
                 <img src={image.path} />
               </div>
-            </SwiperSlide>
+            </SwiperWrapper>
           ))}
         </Swiper>
       </div>
     </div>
   )
 }
+
+
 
 export default ImageSwiper

@@ -17,7 +17,6 @@ function ImageSwiper({ setSwiperIndex, swiperIndex }) {
   return (
     <div className="swiper-container z-0">
       <div className="swiper-wrapper">
-        <strong className="current-page">{currentIndex + 1}</strong>
         <Swiper
           slidesPerView={1}
           spaceBetween={0}

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ModalTest from './modalTest.tsx'
 import Preview from './preview.tsx'
 import ImageSwiper from './ImageSwiper.tsx'
@@ -7,26 +7,23 @@ import ImageSwiper from './ImageSwiper.tsx'
 const WriteLetter = () => {
   const [isModal, setIsModal] = useState<boolean>(false)
   const [swiperIndex, setSwiperIndex] = useState(0)
-  const [sender, setSender] = useState('')
-  const [recipient, setRecipient] = useState('')
-  const [content, setContent] = useState('')
+  const [sendName, setSendName] = useState('')
+  const [receiveName, setReceiveName] = useState('')
+  const [message, setMessage] = useState('')
 
-  const onSenderChange = (e) => setSender(e.target.value)
-  const onRecipientChange = (e) => setRecipient(e.target.value)
-  const onContentChange = (e) => setContent(e.target.value)
+  const onSendNameChange = (e) => setSendName(e.target.value)
+  const onRecipientChange = (e) => setReceiveName(e.target.value)
+  const onMessageChange = (e) => setMessage(e.target.value)
 
-  // 아래와 같이 활용할 데이터를 활용할 예정
-  // console.log('url:', '../../assets/imgs/taeyang{swiperIndex}')
-  // console.log(sender)
-  // console.log(recipient)
-  // console.log(content)
-
-  function openModal() {
-    setIsModal(true)
+  const letter = {
+    sendName,
+    receiveName,
+    message,
+    swiperIndex,
   }
 
-  function closeModal() {
-    setIsModal(false)
+  const handleModal = () => {
+    setIsModal(!isModal)
   }
 
   return (
@@ -39,18 +36,18 @@ const WriteLetter = () => {
           <label htmlFor="sendName">보내는 사람</label>
           <input
             id="sendName"
-            value={sender}
-            onChange={onSenderChange}
-            className="border-black border-solid border-2 rounded-lg w-full"
+            value={sendName}
+            onChange={onSendNameChange}
+            className="border-black border-solid border-2 rounded-lg w-full px-2"
           />
         </div>
         <div>
           <label htmlFor="receiveName">받는 사람</label>
           <input
             id="receiveName"
-            value={recipient}
+            value={receiveName}
             onChange={onRecipientChange}
-            className="border-black border-solid border-2 rounded-lg w-full"
+            className="border-black border-solid border-2 rounded-lg w-full px-2"
           />
         </div>
       </div>
@@ -59,20 +56,19 @@ const WriteLetter = () => {
         <label htmlFor="message">메시지내용</label>
         <textarea
           id="message"
-          value={content}
-          onChange={onContentChange}
-          className="h-40 border-black border-solid border-2 rounded-lg"
+          value={message}
+          onChange={onMessageChange}
+          className="h-40 border-black border-solid border-2 rounded-lg p-2"
         />
       </div>
       {/* Preview Button */}
-      <ModalTest openModal={openModal} />
-      {isModal && <Preview open={isModal} close={closeModal} />}
+      <ModalTest openModal={handleModal} />
+      {isModal && (
+        <Preview open={isModal} close={handleModal} letter={letter} />
+      )}
       {/* Send Button */}
       <div className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-center items-center px-5 lg:px-10">
-        {/* state 값으로 데이터 전송, 현재 null 오류 해결 필요 */}
-        <Link to={'/send-letter'} state={(sender, recipient, content)}>
-          전송하기
-        </Link>
+        전송하기
       </div>
     </section>
   )

@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { collection, addDoc } from 'firebase/firestore'
-import { Link } from 'react-router-dom'
-import db from '../../../firebase.ts'
+// import { useNavigate, Link } from 'react-router-dom'
+// import { collection, addDoc } from 'firebase/firestore'
+// import db from '../../../firebase.ts'
 import ModalTest from './modalTest.tsx'
 import Preview from './preview.tsx'
 import ImageSwiper from './ImageSwiper.tsx'
@@ -13,12 +12,12 @@ const WriteLetter = () => {
   const [sendName, setSendName] = useState('')
   const [receiveName, setReceiveName] = useState('')
   const [message, setMessage] = useState('')
-  const [letterData, setLetterData] = useState({
-    from: '',
-    to: '',
-    content: '',
-    imageUrl: '../lookAtMe.jpg',
-  })
+  // const [letterData, setLetterData] = useState({
+  //   from: '',
+  //   to: '',
+  //   content: '',
+  //   imageUrl: '../lookAtMe.jpg',
+  // })
   const onSendNameChange = (e) => setSendName(e.target.value)
   const onRecipientChange = (e) => setReceiveName(e.target.value)
   const onMessageChange = (e) => setMessage(e.target.value)
@@ -34,23 +33,23 @@ const WriteLetter = () => {
     setIsModal(!isModal)
   }
 
-  const handlePostLetter = async () => {
-    const newLetterData = {
-      from: letterData.from,
-      to: letterData.to,
-      content: letterData.content,
-      createdAt: new Date().toISOString(),
-      imageUrl: letterData.imageUrl,
-    }
+  // const handlePostLetter = async () => {
+  //   const newLetterData = {
+  //     from: letterData.from,
+  //     to: letterData.to,
+  //     content: letterData.content,
+  //     createdAt: new Date().toISOString(),
+  //     imageUrl: letterData.imageUrl,
+  //   }
 
-    try {
-      const docRef = await addDoc(collection(db, 'letter'), newLetterData)
-      console.log('잘저장됨: ', docRef.id)
-    } catch (e) {
-      console.error('저장안됨: ', e)
-      alert('편지 저장에 문제가 있습니다. 다시 시도해주세요.')
-    }
-  }
+  //   try {
+  //     const docRef = await addDoc(collection(db, 'letter'), newLetterData)
+  //     console.log('잘저장됨: ', docRef.id)
+  //   } catch (e) {
+  //     console.error('저장안됨: ', e)
+  //     alert('편지 저장에 문제가 있습니다. 다시 시도해주세요.')
+  //   }
+  // }
 
   return (
     <section className="grid grid-rows[auto_min-content_min-content_min-content_min_content] gap-y-10 content-center h-full">
@@ -66,12 +65,10 @@ const WriteLetter = () => {
             onChange={onSendNameChange}
             className="border-black border-solid border-2 rounded-lg w-full px-2"
             type="text"
-            {/* value={letterData.from} */}
-            {/*
-            onChange={(e) =>
-              setLetterData({ ...letterData, from: e.target.value })
-            }
-            */}
+            // value={letterData.from}
+            // onChange={(e) =>
+            //   setLetterData({ ...letterData, from: e.target.value })
+            // }
           />
         </div>
         <div>
@@ -82,11 +79,10 @@ const WriteLetter = () => {
             onChange={onRecipientChange}
             className="border-black border-solid border-2 rounded-lg w-full px-2"
             type="text"
-            {/* value={letterData.to} */}
-            {/* onChange={(e) =>
-              setLetterData({ ...letterData, to: e.target.value })
-            }
-            */}
+            // value={letterData.to}
+            // onChange={(e) =>
+            //   setLetterData({ ...letterData, to: e.target.value })
+            // }
           />
         </div>
       </div>
@@ -98,11 +94,10 @@ const WriteLetter = () => {
           value={message}
           onChange={onMessageChange}
           className="h-40 border-black border-solid border-2 rounded-lg p-2"
-          {/* value={letterData.content} */}
-          {/* onChange={(e) =>
-            setLetterData({ ...letterData, content: e.target.value })
-          }
-          */}
+          // value={letterData.content}
+          // onChange={(e) =>
+          //   setLetterData({ ...letterData, content: e.target.value })
+          // }
         />
       </div>
       {/* Preview Button */}
@@ -111,12 +106,12 @@ const WriteLetter = () => {
         <Preview open={isModal} close={handleModal} letter={letter} />
       )}
       {/* Send Button */}
-      <div 
+      <div
         className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-center items-center px-5 lg:px-10"
         // onClick={handlePostLetter}
-        >
+      >
         전송하기
-        {/*  <Link to="/send-letter">전송하기</Link> */} 
+        {/*  <Link to="/send-letter">전송하기</Link> */}
       </div>
     </section>
   )

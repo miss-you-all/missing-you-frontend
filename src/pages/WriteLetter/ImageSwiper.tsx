@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import image1 from '../../assets/imgs/taeyang1.jpg'
 import image2 from '../../assets/imgs/taeyang2.jpg'
 import image3 from '../../assets/imgs/taeyang3.jpg'
 import './ImageSwiper.css'
-import { useEffect, useState } from 'react'
 
 function ImageSwiper({ setSwiperIndex, swiperIndex }) {
   const images = [{ src: image1 }, { src: image2 }, { src: image3 }]

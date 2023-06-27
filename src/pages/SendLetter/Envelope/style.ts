@@ -30,17 +30,18 @@ const CardContainer = styled.div`
     height: 350px;
     overflow: hidden;
     transform-origin: left;
-    border: black solid 3px;
+    border: black solid 2px;
     /* box-shadow: inset 100px 20px 100px rgba(0, 0, 0, 0.2),
       30px 0 50px rgba(0, 0, 0, 0.4); */
     transition: 0.6s;
   }
 
   .happy {
-    font-family: Tahoma, sans-serif;
+    /* font-family: Tahoma, sans-serif; */
     text-align: center;
-    margin: 30px;
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    padding: 1rem 0;
+    font-size: 2rem;
+    /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
     transition: 0.1s;
   }
 
@@ -61,7 +62,6 @@ const CardContainer = styled.div`
   }
 
   p {
-    font-family: 'Brush Script MT', cursive;
     margin: 40px;
     color: #333;
   }
@@ -74,7 +74,6 @@ const CardContainer = styled.div`
   }
 
   .back {
-    font-family: Tahoma, sans-serif;
     color: #333;
     text-align: center;
     margin: 30px;

@@ -68,20 +68,15 @@ const Envelope = () => {
           <p className="name">태양인</p>
         </div>
       </div>
-      <div className="flex gap-x-4 justify-center">
-        <button
-          className="bg-slate-200 p-2 rounded-md"
-          onClick={handleShareKakao}
-        >
+      <div className="flex gap-x-4 justify-center mt-4">
+        <button className="p-2 rounded-md" onClick={handleShareKakao}>
           <img
+            className="w-8 bg-none"
             src="https://developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
             alt="카카오링크 보내기 버튼"
           />
         </button>
-        <button
-          className="bg-slate-500 p-2 rounded-md"
-          onClick={handleDownload}
-        >
+        <button className="p-2 rounded-md" onClick={handleDownload}>
           저장하기
         </button>
       </div>

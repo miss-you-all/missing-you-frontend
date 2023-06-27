@@ -54,7 +54,7 @@ const WriteLetter = () => {
   return (
     <section className="grid grid-rows[auto_min-content_min-content_min-content_min_content] gap-y-10 content-center h-full">
       {/* swiper */}
-      <ImageSwiper setSwiperIndex={setSwiperIndex} swiperIndex={swiperIndex} />
+      <ImageSwiper setSwiperIndex={setSwiperIndex} />
       {/* Send, Receive Name */}
       <div className="grid grid-cols-2 justify-between gap-x-20">
         <div>

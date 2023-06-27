@@ -3,7 +3,7 @@ import type { TPreview } from './types/index.ts'
 const Letter = ({ recipient, sender, image, text }: TPreview) => (
   <div className="border-black border-solid border-2 bg-white">
     <div className="h-10 m-4">
-      <div className="float-left">TO {recipient}</div>
+      <div className="float-left">TO. {recipient}</div>
     </div>
     <div>
       <img src={image} alt="letter-image" />

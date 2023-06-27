@@ -1,19 +1,9 @@
-import { useEffect, useState } from 'react'
 import { Navigation } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
-import image1 from '../../assets/imgs/taeyang1.jpg'
-import image2 from '../../assets/imgs/taeyang2.jpg'
-import image3 from '../../assets/imgs/taeyang3.jpg'
 import './ImageSwiper.css'
+import thumbnails from '../../constants/thumbnails.ts'
 
-function ImageSwiper({ setSwiperIndex, swiperIndex }) {
-  const images = [{ src: image1 }, { src: image2 }, { src: image3 }]
-  const [currentIndex, setCurrentIndex] = useState(swiperIndex)
-
-  useEffect(() => {
-    setCurrentIndex(swiperIndex)
-  }, [swiperIndex])
-
+function ImageSwiper({ setSwiperIndex }) {
   return (
     <div className="swiper-container z-0">
       <div className="swiper-wrapper">
@@ -24,15 +14,14 @@ function ImageSwiper({ setSwiperIndex, swiperIndex }) {
           navigation={true}
           modules={[Navigation]}
           onActiveIndexChange={(swiperCore) => {
-            setCurrentIndex(swiperCore.activeIndex)
             setSwiperIndex(swiperCore.activeIndex)
           }}
           className="mySwiper"
         >
-          {images.map((image) => (
-            <SwiperSlide className="swiper-slide">
+          {thumbnails.map((image) => (
+            <SwiperSlide key={image.index} className="swiper-slide">
               <div className="image-container">
-                <img src={image.src} />
+                <img src={image.path} />
               </div>
             </SwiperSlide>
           ))}

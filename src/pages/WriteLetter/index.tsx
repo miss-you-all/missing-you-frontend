@@ -1,12 +1,13 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { collection, addDoc } from 'firebase/firestore'
-import { Link } from 'react-router-dom'
 import db from '../../../firebase.ts'
 import ModalTest from './modalTest.tsx'
 import Preview from './preview.tsx'
 import ImageSwiper from './ImageSwiper.tsx'
 
 const WriteLetter = () => {
+  const navigate = useNavigate()
   const [isModal, setIsModal] = useState<boolean>(false)
   const [letterData, setLetterData] = useState({
     from: '',
@@ -28,15 +29,16 @@ const WriteLetter = () => {
       from: letterData.from,
       to: letterData.to,
       content: letterData.content,
-      createdAt: new Date().toISOString(),
       imageUrl: letterData.imageUrl,
+      createdAt: new Date().toISOString(),
     }
 
     try {
       const docRef = await addDoc(collection(db, 'letter'), newLetterData)
-      console.log('잘저장됨: ', docRef.id)
+      console.log('편지 저장 완료, ID:', docRef.id)
+      navigate('/send-letter')
     } catch (e) {
-      console.error('저장안됨: ', e)
+      console.error('편지 저장 실패:', e)
       alert('편지 저장에 문제가 있습니다. 다시 시도해주세요.')
     }
   }
@@ -88,12 +90,12 @@ const WriteLetter = () => {
       <ModalTest openModal={openModal} />
       {isModal && <Preview open={isModal} close={closeModal} />}
       {/* Send Button */}
-      <div
+      <button
         className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-center items-center px-5 lg:px-10"
         onClick={handlePostLetter}
       >
-        <Link to="/send-letter">전송하기</Link>
-      </div>
+        전송하기
+      </button>
     </section>
   )
 }

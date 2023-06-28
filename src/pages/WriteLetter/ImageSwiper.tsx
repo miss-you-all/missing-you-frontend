@@ -4,10 +4,9 @@ import './ImageSwiper.css'
 import { styled } from 'twin.macro'
 import thumbnails from '../../constants/thumbnails.ts'
 
-const SwiperWrapper = styled(SwiperSlide)<{ key: number }>`
-`
+const SwiperWrapper = styled(SwiperSlide)<{ key: number }>``
 
-function ImageSwiper({ setSwiperIndex }) {
+function ImageSwiper({ setLetterData, letterData }) {
   return (
     <div className="swiper-container z-0">
       <div className="swiper-wrapper">
@@ -18,7 +17,10 @@ function ImageSwiper({ setSwiperIndex }) {
           navigation={true}
           modules={[Navigation]}
           onActiveIndexChange={(swiperCore) => {
-            setSwiperIndex(swiperCore.activeIndex)
+            setLetterData({
+              ...letterData,
+              imageSwiperIndex: swiperCore.activeIndex,
+            })
           }}
           className="mySwiper"
         >
@@ -34,7 +36,5 @@ function ImageSwiper({ setSwiperIndex }) {
     </div>
   )
 }
-
-
 
 export default ImageSwiper

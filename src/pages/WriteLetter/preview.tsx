@@ -1,13 +1,20 @@
 import { ReactElement } from 'react'
 import { Link } from 'react-router-dom'
 import Letter from './letter.tsx'
+import getImgUrl from '../../utils/getImgUrl.ts'
 
 interface Props {
   open: boolean
   close: () => void
+  letter: {
+    sendName: string
+    receiveName: string
+    message: string
+    swiperIndex: number
+  }
 }
 
-const Preview = ({ open, close }: Props): ReactElement => (
+const Preview = ({ open, close, letter }: Props): ReactElement => (
   <div className="z-0 absolute w-screen h-screen top-0 left-0 items-center justify-center grid mx-auto grid-cols-8 lg:grid-cols-12">
     <div
       className={
@@ -26,10 +33,10 @@ const Preview = ({ open, close }: Props): ReactElement => (
         </button>
       </div>
       <Letter
-        recipient={'여러분'}
-        sender={'코코'}
-        image={'../lookAtMe.jpg'}
-        text={'TS 어렵다. 그리고 졸립다. 태양!! 나만 바라봐!'}
+        recipient={letter.receiveName}
+        sender={letter.sendName}
+        image={getImgUrl(letter.swiperIndex)}
+        text={letter.message}
       />
       <div className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-between items-center px-5 lg:px-10 my-10">
         <Link to="/send-letter">전송하기</Link>

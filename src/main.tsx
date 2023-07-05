@@ -11,6 +11,7 @@ import WriteLetter from './pages/WriteLetter/index.tsx'
 import ViewLetter from './pages/ViewLetter/index.tsx'
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
+import MyPage from './pages/myPage/index.tsx'
 
 window.Kakao.init(import.meta.env.VITE_SHARE_KAKAO_LINK_KEY)
 window.Kakao.isInitialized()
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         path: 'view-letter',
         element: <ViewLetter />,
       },
+      {
+        path: 'my-page',
+        element: <MyPage />,
+      }
     ],
   },
 ])

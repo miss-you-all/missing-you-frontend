@@ -1,5 +1,4 @@
 import { ReactElement } from 'react'
-import { Link } from 'react-router-dom'
 import Letter from './letter.tsx'
 import getImgUrl from '../../utils/getImgUrl.ts'
 
@@ -7,14 +6,20 @@ interface Props {
   open: boolean
   close: () => void
   letter: {
-    sendName: string
-    receiveName: string
+    from: string
+    to: string
     message: string
-    swiperIndex: number
+    imageSwiperIndex: number
   }
+  handlePostLetter: () => void
 }
 
-const Preview = ({ open, close, letter }: Props): ReactElement => (
+const Preview = ({
+  open,
+  close,
+  letter,
+  handlePostLetter,
+}: Props): ReactElement => (
   <div className="z-0 absolute w-screen h-screen top-0 left-0 items-center justify-center grid mx-auto grid-cols-8 lg:grid-cols-12">
     <div
       className={
@@ -33,14 +38,17 @@ const Preview = ({ open, close, letter }: Props): ReactElement => (
         </button>
       </div>
       <Letter
-        recipient={letter.receiveName}
-        sender={letter.sendName}
-        image={getImgUrl(letter.swiperIndex)}
+        recipient={letter.to}
+        sender={letter.from}
+        image={getImgUrl(letter.imageSwiperIndex)}
         text={letter.message}
       />
-      <div className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-between items-center px-5 lg:px-10 my-10">
-        <Link to="/send-letter">전송하기</Link>
-      </div>
+      <button
+        className="border-black border-solid border-2 rounded-lg bg-white h-14 flex justify-between items-center px-5 lg:px-10 my-10"
+        onClick={handlePostLetter}
+      >
+        전송하기
+      </button>
     </div>
   </div>
 )

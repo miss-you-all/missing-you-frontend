@@ -12,6 +12,8 @@ import ViewLetter from './pages/ViewLetter/index.tsx'
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import MyPage from './pages/myPage/index.tsx'
+import ViewGuestBook from './pages/myPage/ViewGuestBook.tsx'
+import WriteGuestBook from './pages/myPage/writeGuestBook.tsx'
 
 window.Kakao.init(import.meta.env.VITE_SHARE_KAKAO_LINK_KEY)
 window.Kakao.isInitialized()
@@ -44,7 +46,15 @@ const router = createBrowserRouter([
       {
         path: 'my-page',
         element: <MyPage />,
-      }
+      },
+      {
+        path: 'write-guest-book',
+        element: <WriteGuestBook />,
+      },
+      {
+        path: 'view-guest-book',
+        element: <ViewGuestBook />,
+      },
     ],
   },
 ])
